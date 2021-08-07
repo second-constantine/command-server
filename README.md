@@ -1,4 +1,4 @@
-This is simple implementation for a command server. **Don't use it for illegal actions.**
+This is a command server simple implementation. **Don't use it for illegal actions.**
 
 # Requirements
 gradle 7.1, jdk 11, screen, bash
