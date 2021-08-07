@@ -1,0 +1,13 @@
+.idea/**
+**/.gradle/**
+gradle/**
+**/node_modules/**
+**/package-lock.json
+**/build/**
+**/out/**
+**/target/**
+gradlew
+gradlew.bat
+*.iml
+*.mwb.war
+.DS_Store

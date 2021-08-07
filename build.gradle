@@ -1,0 +1,76 @@
+apply plugin: "idea"
+apply plugin: "org.springframework.boot"
+apply plugin: "kotlin-spring"
+apply plugin: "kotlin" // Required for Kotlin integration
+group "by.next.way"
+version "1.0-SNAPSHOT"
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    name 'm2-dv8tion'
+    url 'https://m2.dv8tion.net/releases'
+  }
+}
+
+dependencies {
+  implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinPluginVersion"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinPluginVersion"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinPluginVersion"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+
+  implementation "org.apache.logging.log4j:log4j-api:$log4jVersion"
+  implementation "org.apache.logging.log4j:log4j-core:$log4jVersion"
+
+  implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$kotlinJacksonVersion"
+  implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+  implementation "com.google.code.gson:gson:$gsonVersion"
+  implementation "org.apache.httpcomponents:httpclient:$httpClientVersion"
+  implementation "org.apache.httpcomponents:httpmime:$httpClientVersion"
+
+  implementation "com.github.ben-manes.caffeine:caffeine:$caffeineVersion"
+  implementation "org.springdoc:springdoc-openapi-ui:$swaggerVersion"
+
+  testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+  testImplementation "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+  testImplementation "org.mockito:mockito-core:$mockitoVersion"
+  testImplementation "de.jodamob.kotlin:kotlin-runner-spock:$kotlinSpockVersion"
+}
+
+compileJava {
+  options.encoding = "UTF-8"
+  options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+compileKotlin {
+  kotlinOptions {
+    jvmTarget = "11"
+    freeCompilerArgs = ["-Xjsr305=strict -jvm-target 11"]
+  }
+}
+
+buildscript {
+  repositories {
+    mavenCentral()
+    maven {
+      name 'm2-dv8tion'
+      url 'https://m2.dv8tion.net/releases'
+    }
+  }
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinPluginVersion"
+    classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinPluginVersion"
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+  }
+}
+
+jar {
+}
+
+bootJar {
+  launchScript()
+}
