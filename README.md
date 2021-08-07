@@ -4,7 +4,7 @@ This is a command server simple implementation. **Don't use it for illegal actio
 gradle 7.1, jdk 11, screen, bash, curl
 
 # Server
-1. build `gradle build`
+1. Build `gradle build`
 2. Run `./build/libs/command-server-1.0-SNAPSHOT.jar` 
 3. Open [swagger ui](http://localhost:8889) 
 
