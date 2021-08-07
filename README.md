@@ -1,7 +1,7 @@
 This is a command server simple implementation. **Don't use it for illegal actions.**
 
 # Requirements
-gradle 7.1, jdk 11, screen, bash
+gradle 7.1, jdk 11, screen, bash, curl
 
 # Server
 1. build `gradle build`
