@@ -6,7 +6,7 @@ TOKEN="123token123"
 while :
 do
   echo "Get commands.. $TOKEN"
-	response=$(curl -s -w "%{http_code}" -X 'GET' "$URL/api/get-commands/$TOKEN" -H 'accept: */*')
+  response=$(curl -s -w "%{http_code}" -X 'GET' "$URL/api/get-commands/$TOKEN" -H 'accept: */*')
   http_code=${response: -3}  # get the last line
   content=$(echo "${response}" | head -c-4)   # get all but the last line which contains the status code
   echo "< [$http_code] $content"
